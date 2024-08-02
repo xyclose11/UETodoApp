@@ -1,4 +1,6 @@
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 public class ToDoApp {
@@ -58,9 +60,11 @@ public class ToDoApp {
                     // Max hdr len in char
                     int nameHdrLen = 20;
                     int bodyHdrLen = 40;
-                    int dueDateHdrLen = 24;
-                    int createdHdrLen = 24;
-                    int updatedHdrLen = 24;
+
+                    // For later use
+//                    int dueDateHdrLen = 24;
+//                    int createdHdrLen = 24;
+//                    int updatedHdrLen = 24;
 
                     System.out.print("*------Name------*&*----------body----------*&*-------Due Date-------*&*-------Created@-------*&*-------Last Updated@-------*&*");
 
@@ -98,6 +102,37 @@ public class ToDoApp {
 
                 // Create new item
                 case 2:
+                    System.out.println("""
+                            
+                            
+                            """);
+                    todoItem userItem = new todoItem();
+
+                    System.out.println("Please enter name of todo task: ");
+                    String itemName = userInput.nextLine();
+                    userItem.setName(itemName);
+                    try {
+
+                    } catch (Exception e) {
+                        System.out.println("ERROR ATTEMPTING TO SET NAME FOR TODO ITEM. PLEASE TRY AGAIN.");
+                    }
+
+                    try {
+                        System.out.print("Please enter the body of todo task: ");
+                        userItem.setBody(userInput.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("ERROR ATTEMPTING TO SET BODY FOR TODO ITEM. PLEASE TRY AGAIN.");
+                    }
+
+                    System.out.println("""
+                            
+                            
+                            """);
+                    System.out.println("Setting Due Date is still WIP");
+
+                    // append todoItem to list
+                    userList.append(userItem);
+
                     break;
 
                 // Edit existing item
@@ -124,7 +159,7 @@ public class ToDoApp {
 // TODO: Search feature
 // TODO: Sort feature
 // TODO: Individual view feature
-
+// TODO: Feature to allow user to have multiple todo lists
 
 //        myList.append(myItem1);
 //        myList.append(myItem1);
