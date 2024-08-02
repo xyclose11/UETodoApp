@@ -137,6 +137,49 @@ public class ToDoApp {
 
                 // Edit existing item
                 case 3:
+                    System.out.println("""
+                            
+                            
+                            """);
+                    for (int i = 0; i < userList.length; i++) {
+                        System.out.println(i + ": " + userList.get(i).name);
+                    }
+
+                    System.out.println("Please enter the number of the task for which you want to edit: ");
+                    int editNum = userInput.nextInt();
+                    todoItem editItem;
+
+                    try {
+                        editItem = userList.get(editNum);
+                    } catch (Exception e) {
+                        System.out.println("ERROR TRYING TO ACCESS DESIRED ITEM. ITEM NUMBER: " + editNum);
+                        return;
+                    }
+
+                    System.out.println("""
+                            Please enter the number for the field you want to modify:
+                            1. Name
+                            2. Body
+                            3. Due Date
+                            """);
+
+                    int editField = userInput.nextInt();
+
+                    switch (editField) {
+                        case 1:
+                            System.out.println("Please enter the new name here: ");
+                            editItem.setName(userInput.next());
+                            break;
+                        case 2:
+                            System.out.println("Please enter the new body here: ");
+                            editItem.setBody(userInput.next());
+                            break;
+                        case 3:
+                            System.out.println("Please enter the new due date here: ");
+                            System.out.println("Due Date Feature WIP");
+                            //editItem.setName(userInput.nextLine());
+                            break;
+                    }
                     break;
 
                 // Remove item
@@ -145,7 +188,6 @@ public class ToDoApp {
                             
                             
                             """);
-                    // TODO list titles only
                     for (int i = 0; i < userList.length; i++) {
                         System.out.println(i + ": " + userList.get(i).name);
                     }
@@ -180,23 +222,5 @@ public class ToDoApp {
 // TODO: Individual view feature
 // TODO: Feature to allow user to have multiple todo lists
 
-//        myList.append(myItem1);
-//        myList.append(myItem1);
-//        myList.append(myItem1);
-//        myList.append(myItem1);
-//        myList.append(myItem1);
-//        myList.prepend(myItem2);
-//
-//        myList.remove(myItem1);
-//        myList.insertAt(7, myItem3);
-//
-//
-//        System.out.println(myList.capacity);
-//        System.out.println(myList.length);
-//
-//        for (int i = 0; i < myList.length ; i++) {
-//            todoItem temp = myList.get(i);
-//            System.out.println(temp.name);
-//        }
     }
 }
