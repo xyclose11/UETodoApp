@@ -5,12 +5,11 @@ public class ToDoApp {
 
         todoItem myItem1 = new todoItem();
         myItem1.setName("Example Todo Item");
-        myItem1.setBody("THIS IS THE BODY OF A TODO ITEM");
 
-        todoItem[] initList = new todoItem[]{myItem1};
+        todoItem myItem2 = new todoItem();
+        myItem2.setName("Second Item");
 
         arrayList<todoItem> myList = new arrayList<todoItem>(5);
-//        System.out.println(myList.capacity);
 
         myList.append(myItem1);
         myList.append(myItem1);
@@ -19,6 +18,7 @@ public class ToDoApp {
         myList.append(myItem1);
         myList.append(myItem1);
         myList.append(myItem1);
+        myList.prepend(myItem2);
 
 
         System.out.println(myList.capacity);
@@ -27,8 +27,6 @@ public class ToDoApp {
         for (int i = 0; i < myList.length ; i++) {
             todoItem temp = myList.get(i);
             System.out.println(temp.name);
-            System.out.println(temp.body);
-            System.out.println(temp.getCreatedAt());
         }
     }
 }

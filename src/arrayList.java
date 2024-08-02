@@ -34,6 +34,43 @@ public class arrayList<T> {
         this.items = items;
     }
 
+    public void prepend(T item) {
+        if (this.length == 0) {
+            this.items[0] = item;
+            this.length++;
+        }
+
+        if (this.length == this.capacity) {
+            // expand array with 2x capacity
+            arrayList<T> newList = new arrayList<T>((this.capacity * 2));
+
+            // copy items from 1st array to 2nd array
+            // && shift all values -> 1
+            for (int i = 0; i < this.length; i++) {
+                newList.items[i + 1] = this.get(i);
+                newList.length++;
+            }
+
+            // add item to 0 pos
+            newList.items[0] = item;
+            newList.length++;
+
+            this.capacity = newList.capacity;
+            this.length = newList.length;
+            this.setItems(newList.items);
+            return;
+        }
+
+        // shift items starting from end of array
+        for (int i = this.length; i >= 0; i--) {
+            this.items[i + 1] = this.items[i];
+        }
+
+        // add new item
+        this.items[0] = item;
+        this.length++;
+    }
+
     public void append(T item) {
         if (this.length == this.capacity) {
             // expand array with 2x capacity
