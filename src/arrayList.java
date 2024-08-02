@@ -114,7 +114,12 @@ public class arrayList<T> {
         T retV = this.get(idx);
 
         // overwrite array data @ index
-        this.items[idx] = null;
+        // Shift items over removed item
+        for (int i = idx; i < this.length; i++) {
+            this.items[i] = this.items[i + 1];
+            this.items[i + 1] = null;
+        }
+
         this.length--;
 
         return retV;
