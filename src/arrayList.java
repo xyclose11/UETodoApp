@@ -152,6 +152,8 @@ public class arrayList<T> {
 
     }
 
+    // TODO: Make code more reusable, add a shiftLeft & shiftRight method, etc
+
     public void insertAt(int idx, T item) {
         if (idx > this.length) {
             throw new IllegalArgumentException("InsertAt index cannot be larger than arrayList size.");
