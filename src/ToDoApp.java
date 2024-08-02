@@ -54,13 +54,35 @@ public class ToDoApp {
                     // Table Headers
                     // TODO Get longest length of each respective header value and dynamically shorten/lengthen headers OR set max len for each col
                     // TODO Create a table class that can input data and place it on a table
+
+                    // Max hdr len in char
+                    int nameHdrLen = 20;
+                    int bodyHdrLen = 40;
+                    int dueDateHdrLen = 24;
+                    int createdHdrLen = 24;
+                    int updatedHdrLen = 24;
+
                     System.out.print("*------Name------*&*----------body----------*&*-------Due Date-------*&*-------Created@-------*&*-------Last Updated@-------*&*");
 
                     for (int i = 0; i < userList.length; i++) {
                         todoItem temp = userList.get(i);
+                        String tHdr = temp.name;
+                        String bHdr = temp.body;
+                        // add trailing whitespace
+                        if (temp.name.length() > nameHdrLen) {
+                            // cut off string to fit inside nameHdrLen
+                            tHdr = temp.name.substring(0, nameHdrLen - 3);
+                            tHdr = tHdr.concat("...");
+                        }
+
+                        if (temp.body.length() > nameHdrLen) {
+                            // cut off string to fit inside nameHdrLen
+                            bHdr = temp.body.substring(0, bodyHdrLen - 3);
+                            bHdr = bHdr.concat("...");
+                        }
                         System.out.println();
-                        System.out.print(temp.name + " | ");
-                        System.out.print(temp.body + " | ");
+                        System.out.print(tHdr + " | ");
+                        System.out.print(bHdr + " | ");
                         System.out.print(temp.dueDate + " | ");
                         System.out.print(temp.getCreatedAt() + " | ");
                         System.out.print(temp.getUpdatedAt() + " | ");
@@ -101,7 +123,7 @@ public class ToDoApp {
 // TODO: Mark item as complete/uncomplete
 // TODO: Search feature
 // TODO: Sort feature
-
+// TODO: Individual view feature
 
 
 //        myList.append(myItem1);
