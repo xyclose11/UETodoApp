@@ -9,6 +9,9 @@ public class ToDoApp {
         todoItem myItem2 = new todoItem();
         myItem2.setName("Second Item");
 
+        todoItem myItem3 = new todoItem();
+        myItem3.setName("Third Item");
+
         arrayList<todoItem> myList = new arrayList<todoItem>(5);
 
         myList.append(myItem1);
@@ -21,6 +24,7 @@ public class ToDoApp {
         myList.prepend(myItem2);
 
         myList.remove(myItem1);
+        myList.insertAt(7, myItem3);
 
 
         System.out.println(myList.capacity);

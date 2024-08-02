@@ -152,6 +152,47 @@ public class arrayList<T> {
 
     }
 
+    public void insertAt(int idx, T item) {
+        if (idx > this.length) {
+            throw new IllegalArgumentException("InsertAt index cannot be larger than arrayList size.");
+        }
+        if (this.length == 0) {
+            this.append(item);
+        }
+
+        if (this.length == this.capacity) {
+            // expand array with 2x capacity
+            arrayList<T> newList = new arrayList<T>((this.capacity * 2));
+
+            // copy items from 1st array to 2nd array
+            for (int i = 0; i < this.length; i++) {
+                if (i == idx) {
+                    newList.items[idx] = item;
+                } else {
+                    newList.items[i] = this.get(i);
+                }
+            }
+
+            newList.setLength(this.length + 1);
+
+            this.setItems(newList.items);
+            this.capacity = newList.getCapacity();
+            this.setLength(newList.getLength());
+            return;
+        }
+
+
+        // shift items starting from end of array
+        for (int i = this.length; i >= 0; i--) {
+            this.items[i + 1] = this.items[i];
+        }
+
+        // insert new item
+        this.items[idx] = item;
+        this.length++;
+
+    }
+
     public T pop() {
         if (this.length <= 0) { throw new IllegalArgumentException("Cannot pop since length is <= 0"); }
 
