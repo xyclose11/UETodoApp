@@ -141,6 +141,25 @@ public class ToDoApp {
 
                 // Remove item
                 case 4:
+                    System.out.println("""
+                            
+                            
+                            """);
+                    // TODO list titles only
+                    for (int i = 0; i < userList.length; i++) {
+                        System.out.println(i + ": " + userList.get(i).name);
+                    }
+
+                    System.out.println("Please enter the number of the task for which you want to remove: ");
+                    int removeNum = userInput.nextInt();
+
+                    try {
+                        userList.removeAt(removeNum);
+                        System.out.println("Todo Item Successfully Removed!");
+                    } catch (Exception e) {
+                        System.out.println("ERROR OCCURRED WHILE TRYING TO DELETE ITEM NUMBER: " + removeNum);
+                    }
+
                     break;
 
                 // Exit program
