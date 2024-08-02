@@ -1,3 +1,5 @@
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 
 public class arrayList<T> {
@@ -125,10 +127,30 @@ public class arrayList<T> {
         return retV;
     }
 
-//    public T remove(T item) {
-//
-//
-//    }
+    public T remove(T item) {
+        if (this.length == 0) {
+            throw new IllegalArgumentException("ArrayList currently has no elements.");
+        }
+
+        // search array for item
+        for (int i = 0; i < this.length; i++) {
+            if (this.items[i].equals(item)) {
+                // remove item
+                T retV = this.items[i];
+                this.items[i] = null;
+                for (int k = i; k < this.length; k++) {
+                    this.items[k] = this.items[k + 1];
+                    this.items[k + 1] = null;
+                }
+                this.length--;
+
+                return retV;
+            }
+        }
+
+        throw new RuntimeException("Item does not exist!");
+
+    }
 
     public T pop() {
         if (this.length <= 0) { throw new IllegalArgumentException("Cannot pop since length is <= 0"); }

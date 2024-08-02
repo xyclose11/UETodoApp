@@ -20,6 +20,8 @@ public class ToDoApp {
         myList.append(myItem1);
         myList.prepend(myItem2);
 
+        myList.remove(myItem1);
+
 
         System.out.println(myList.capacity);
         System.out.println(myList.length);
