@@ -1,9 +1,24 @@
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
 
 public class ToDoApp {
+
+    private static Date dateTimeParser(String dateTimeString) {
+
+        try {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            return df.parse(dateTimeString);
+        } catch (Exception e) {
+            System.out.println("ERROR PARSING DATE: HERE IS THE LAST USED INPUT-> " + dateTimeString);
+            return null;
+        }
+
+    }
+
     public static void main(String[] args) {
         // START EXAMPLE DATA INIT
         todoItem myItem1 = new todoItem();
@@ -124,11 +139,18 @@ public class ToDoApp {
                         System.out.println("ERROR ATTEMPTING TO SET BODY FOR TODO ITEM. PLEASE TRY AGAIN.");
                     }
 
+                    try {
+                        System.out.println("Please enter the due date of the task in the following format 'yyyy-mm-dd  hh:mm:ss': ");
+                        String dueDateUserInput = userInput.nextLine();
+                        userItem.setDueDate(dateTimeParser(dueDateUserInput));
+                    } catch (Exception e) {
+                        System.out.println("ERROR ATTEMPTING TO SET DUE DATE FOR TODO ITEM. PLEASE TRY AGAIN.");
+                    }
+
                     System.out.println("""
                             
                             
                             """);
-                    System.out.println("Setting Due Date is still WIP");
 
                     // append todoItem to list
                     userList.append(userItem);
