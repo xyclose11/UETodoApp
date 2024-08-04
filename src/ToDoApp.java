@@ -41,6 +41,14 @@ public class ToDoApp {
 
         // END EXAMPLE DATA INIT
 
+        // START HISTORY TESTING
+        History myHistory = new History();
+        myHistory.append(myItem1);
+        myHistory.append(myItem1);
+        myHistory.append(myItem1);
+        System.out.println(myHistory.size());
+        // END HISTORY TESTING
+
         int userCont = -1;
         int loopCtr = -1;
         int userChoice;
