@@ -186,8 +186,9 @@ public class ToDoApp {
                             """);
 
                     int editField = userInput.nextInt();
-
+                    userInput.nextLine();
                     switch (editField) {
+
                         case 1:
                             System.out.println("Please enter the new name here: ");
                             editItem.setName(userInput.next());
@@ -197,9 +198,8 @@ public class ToDoApp {
                             editItem.setBody(userInput.next());
                             break;
                         case 3:
-                            System.out.println("Please enter the new due date here: ");
-                            System.out.println("Due Date Feature WIP");
-                            //editItem.setName(userInput.nextLine());
+                            System.out.println("Please enter the new due date here in the following format 'yyyy-MM-dd  hh:mm:ss': ");
+                            editItem.setDueDate(dateTimeParser(userInput.nextLine()));
                             break;
                     }
                     break;
