@@ -108,17 +108,17 @@ public class ToDoApp {
                             """);
                     todoItem userItem = new todoItem();
 
-                    System.out.println("Please enter name of todo task: ");
-                    String itemName = userInput.nextLine();
-                    userItem.setName(itemName);
                     try {
-
+                        userInput.nextLine();
+                        System.out.println("Please enter name of todo task: ");
+                        String itemName = userInput.nextLine();
+                        userItem.setName(itemName);
                     } catch (Exception e) {
                         System.out.println("ERROR ATTEMPTING TO SET NAME FOR TODO ITEM. PLEASE TRY AGAIN.");
                     }
 
                     try {
-                        System.out.print("Please enter the body of todo task: ");
+                        System.out.println("Please enter the body of todo task: ");
                         userItem.setBody(userInput.nextLine());
                     } catch (Exception e) {
                         System.out.println("ERROR ATTEMPTING TO SET BODY FOR TODO ITEM. PLEASE TRY AGAIN.");
