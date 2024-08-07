@@ -50,6 +50,8 @@ public class ToDoApp {
         myHistory.prepend(myItem3);
         myHistory.prepend(myItem3);
         System.out.println(myHistory.size());
+
+        System.out.println(myHistory.find(myItem1).name);
         // END HISTORY TESTING
 
         int userCont = -1;

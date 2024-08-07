@@ -85,6 +85,19 @@ public class History {
     }
 
     public todoItem find(todoItem item) {
+        if (this.head == null) {
+            return null;
+        }
+
+        TodoNode<todoItem> ptr = this.head;
+
+        while (this.head != null) {
+            if (this.head.value == item) {
+                return this.head.getValue();
+            }
+            this.head = this.head.getNext();
+        }
+
         return null;
     }
 
