@@ -71,6 +71,16 @@ public class History {
     }
 
     public void prepend(todoItem item) {
+        if (this.head == null) {
+            this.head = new TodoNode<>(item);
+            return;
+        }
+
+        TodoNode<todoItem> todoNode = new TodoNode<>(item);
+
+        todoNode.next = this.head;
+        todoNode.prev = null;
+        this.head = todoNode;
 
     }
 
