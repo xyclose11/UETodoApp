@@ -44,8 +44,8 @@ public class ToDoApp {
         // START HISTORY TESTING
         History myHistory = new History();
         myHistory.append(myItem1);
-        myHistory.append(myItem1);
-        myHistory.append(myItem1);
+        myHistory.append(myItem2);
+        myHistory.append(myItem3);
         System.out.println(myHistory.size());
         // END HISTORY TESTING
 

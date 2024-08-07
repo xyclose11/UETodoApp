@@ -17,7 +17,7 @@ public class History {
         }
 
         public TodoNode<todoItem> getNext() {
-            return next;
+            return this.next;
         }
 
         public TodoNode<todoItem> getPrev() {
@@ -48,24 +48,26 @@ public class History {
     }
 
     public void append(todoItem item) {
-        // create new item
-        TodoNode<todoItem> todoNode = new TodoNode<>(item);
+        // save ref to head
+        TodoNode<todoItem> ref = this.head;
 
-        // create new instance of DS
         if (this.head == null) {
+            TodoNode<todoItem> todoNode = new TodoNode<>(item);
             this.head = todoNode;
             this.head.next = this.head.prev = null;
+            return;
         }
 
-        // append to list
-        // create a traverser
-        TodoNode<todoItem> ptr = this.head;
-        while(ptr.getNext() != null) {
-            ptr.setNext(ptr.getNext());
+        while(this.head.next != null) {
+            this.head = this.head.next;
         }
 
-        ptr.setNext(null);
-        todoNode.setPrev(ptr);
+        TodoNode<todoItem> todoNode = new TodoNode<>(item);
+        this.head.next = todoNode;
+        todoNode.prev = this.head;
+
+        // set head back to OG head
+        this.head = ref;
     }
 
     public void prepend(todoItem item) {
@@ -85,12 +87,13 @@ public class History {
             return -1;
         }
 
-        int ctr = 0;
+        // Start at one since we don't count the starting head val
+        int ctr = 1;
         TodoNode<todoItem> sizePtr = this.head;
         System.out.println(sizePtr.next);
-        while (sizePtr.next != null) {
+        while (sizePtr.getNext() != null) {
             ctr++;
-            sizePtr = sizePtr.next;
+            sizePtr = sizePtr.getNext();
         }
 
         return ctr;
